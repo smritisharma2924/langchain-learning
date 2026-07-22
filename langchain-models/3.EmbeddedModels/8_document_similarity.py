@@ -15,7 +15,7 @@ document = [
     "Jasprit Bumrah is an Indian fast bowler known for his unorthodox action and yorkers."
 ]
 
-query = "Tell me about Virat Kohli"
+query = input("Enter your query :")
 
 doc_embeddings = embedding.embed_documents(document)
 query_embedding = embedding.embed_query(query)
