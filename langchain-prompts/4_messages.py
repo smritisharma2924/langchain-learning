@@ -15,4 +15,4 @@ result = model.invoke(messages)
 
 messages.append(AIMessage(content = result.content))
 
-print(result.content)
+print(messages)
