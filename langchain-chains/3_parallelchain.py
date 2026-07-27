@@ -1,3 +1,15 @@
+# Working:
+# 1. The input topic is passed to RunnableParallel.
+# 2. RunnableParallel sends the same topic to two independent chains simultaneously:
+#       - Branch 1 generates notes using model1.
+#       - Branch 2 generates a quiz using model2.
+# 3. It returns both outputs as a dictionary: {'notes': ..., 'quiz': ...}.
+# 4. This dictionary is passed to prompt3, where {notes} and {quiz} are filled automatically.
+# 5. model3 merges them into a single document.
+# 6. StrOutputParser converts the final AIMessage into a string.
+#
+# Flow: topic -> [notes chain || quiz chain] -> {'notes', 'quiz'} -> merge chain -> final output
+
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
