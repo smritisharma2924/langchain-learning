@@ -1,6 +1,7 @@
 # Simple Chain
 # Connects a prompt, model, and output parser sequentially using LCEL.
 # Each component's output becomes the input to the next component.
+# Here: PromptTemplate -> Model -> StrOutputParser -> final string output.
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
